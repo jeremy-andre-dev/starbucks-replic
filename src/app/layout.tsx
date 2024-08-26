@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
 
+import NavBar from "./_components/NavBar";
+
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
@@ -16,7 +18,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
+      <body className="flex flex-col items-center">
+        <NavBar />
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
