@@ -1,6 +1,8 @@
 import "~/styles/globals.css";
 
 import NavBar from "./_components/NavBar";
+import UpperFooter from "./_components/UpperFooter";
+import LowerFooter from "./_components/LowerFooter";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -21,6 +23,8 @@ export default function RootLayout({
       <body className="flex flex-col items-center">
         <NavBar />
         <TRPCReactProvider>{children}</TRPCReactProvider>
+        <UpperFooter />
+        <LowerFooter />
       </body>
     </html>
   );
