@@ -2,8 +2,12 @@ import { PiMapPinFill } from "react-icons/pi";
 
 const NavBar = () => {
   return (
-    <div className="fixed flex w-full justify-center shadow-md bg-white h-[7.5rem]  ">
-      <div className="flex w-full max-w-[94rem] justify-between px-6 py-6 text-[rgba(0,0,0,0.87)] ">
+    <div className="fixed flex w-full flex-col items-center bg-white shadow-md">
+      <div className="flex w-full justify-center text-white bg-black px-6 py-1 font-semibold text-[0.9rem] text-center">
+        Esta página es un proyecto personal creado para demostrar mis
+        habilidades como desarrollador. No es la página oficial de Starbucks.
+      </div>
+      <div className="flex w-full max-w-[94rem] justify-between px-6 py-6 text-[rgba(0,0,0,0.87)]">
         {/* left NavBar _____________________________*/}
         <div className="flex items-center gap-10 text-[0.8rem] font-extrabold tracking-[0.1rem]">
           <button

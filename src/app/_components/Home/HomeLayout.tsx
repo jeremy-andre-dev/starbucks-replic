@@ -54,7 +54,7 @@ const imagesHomes = [
 
 const HomeLayout = () => {
   return (
-    <div className=" mt-[7rem] flex flex-col gap-10 px-6 py-[3rem]">
+    <div className="mt-[7rem] flex flex-col gap-10 px-6 py-[5.75rem]">
       {imagesHomes.map((image, index) => (
         <div
           className={`flex w-full items-center justify-between ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} ${image.bgcolor} `}
