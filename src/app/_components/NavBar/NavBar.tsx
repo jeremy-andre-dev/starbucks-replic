@@ -35,9 +35,9 @@ const NavBar = () => {
       </div>
 
       <div
-        className={`relative flex h-[5rem] w-full items-center justify-center shadow-md py-6 lg:h-[8rem] lg:max-w-[94rem] lg:px-6 lg:shadow-none`}
+        className={`relative flex h-[5rem] w-full items-center justify-center py-6 shadow-md lg:h-[8rem] lg:max-w-[94rem] lg:px-6 lg:shadow-none`}
       >
-        <div className="flex w-full px-4 justify-between text-[rgba(0,0,0,0.87)] lg:max-w-none">
+        <div className="flex w-full justify-between px-4 text-[rgba(0,0,0,0.87)] lg:max-w-none">
           {/* Left NavBar _____________________________*/}
           <div className="flex items-center gap-10 text-[0.8rem] font-extrabold tracking-[0.1rem]">
             <button
@@ -83,13 +83,13 @@ const NavBar = () => {
 
         {/* MOVIL ________________________________________*/}
         {/* Menu Responsive NavBar _____________________________*/}
-        <div className="flex cursor-pointer items-center lg:hidden px-4">
+        <div className="flex cursor-pointer items-center px-4 lg:hidden">
           <MenuNavBar toggleMenu={toggleMenu} isOpen={isOpen} />
         </div>
 
         {/* Menú desplegable */}
         <div
-          className={`absolute right-0 top-[5rem] -z-10 max-h-0 overflow-hidden rounded-bl-2xl bg-white p-5 shadow-lg transition-all duration-[0.4s] ease-in-out lg:hidden ${isOpen ? "max-h-dvh" : "max-h-0 p-0"}`}
+          className={`absolute right-0 top-[5rem] -z-10 max-h-0 overflow-hidden rounded-bl-2xl bg-white shadow-lg transition-all duration-[0.4s] ease-in-out lg:hidden ${isOpen ? "max-h-dvh p-5" : "max-h-0 p-0"}`}
         >
           <ul className="flex flex-col gap-10 p-5 pb-6 font-medium">
             <li className="flex">MENÚ</li>
