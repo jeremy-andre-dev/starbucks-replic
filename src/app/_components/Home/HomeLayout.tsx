@@ -54,31 +54,37 @@ const imagesHomes = [
 
 const HomeLayout = () => {
   return (
-    <div className="mt-[7rem] flex flex-col gap-10 px-6 py-[5.75rem]">
+    <div className="mt-[7rem] flex flex-col items-center gap-10 py-[5.75rem] lg:px-6">
       {imagesHomes.map((image, index) => (
         <div
-          className={`flex w-full items-center justify-between ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} ${image.bgcolor} `}
           key={image.name}
+          className="flex w-full items-center justify-center"
         >
-          <div className="w-1/2">
-            <img src={image.image} alt="asd" className="w-full" />
-          </div>
+          <div
+            className={`flex w-full max-w-[45rem] items-center justify-between lg:max-w-none ${index % 2 === 0 ? "flex-col lg:flex-row" : "flex-col lg:flex-row-reverse"} ${image.bgcolor} `}
+          >
+            <div className="lg:w-1/2">
+              <img src={image.image} alt="asd" className="w-full" />
+            </div>
 
-          <div className="w-1/2">
-            <div
-              className={`flex w-full flex-col items-center justify-center gap-6 px-8 ${image.fontColor}`}
-            >
-              <div className={`text-center text-5xl font-bold`}>
-                {image.title}
-              </div>
-              <div className={`text-center text-[1.55rem] font-medium`}>
-                {image.subtitle}
-              </div>
-              <button
-                className={`${image.bgbuttom} rounded-full px-6 py-4 text-2xl font-bold text-white`}
+            <div className="lg:w-1/2">
+              <div
+                className={`flex w-full flex-col items-center justify-center gap-6 px-[5rem] py-[2rem] lg:px-8 lg:py-0 ${image.fontColor}`}
               >
-                {image.buttonText}
-              </button>
+                <div className={`text-center text-2xl font-bold lg:text-5xl`}>
+                  {image.title}
+                </div>
+                <div
+                  className={`text-center text-[1rem] font-medium lg:text-[1.55rem]`}
+                >
+                  {image.subtitle}
+                </div>
+                <button
+                  className={`${image.bgbuttom} rounded-full px-3 py-1 text-[1rem] font-bold text-white lg:px-6 lg:py-4 lg:text-2xl`}
+                >
+                  {image.buttonText}
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import "~/styles/globals.css";
 
-import NavBar from "./_components/NavBar";
-import UpperFooter from "./_components/UpperFooter";
-import LowerFooter from "./_components/LowerFooter";
+import NavBar from "./_components/NavBar/NavBar";
+import UpperFooter from "./_components/Footer/UpperFooter";
+import LowerFooter from "./_components/Footer/LowerFooter";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
