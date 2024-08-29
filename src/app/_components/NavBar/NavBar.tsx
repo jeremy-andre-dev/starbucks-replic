@@ -1,11 +1,20 @@
+"use client";
+
 import { PiMapPinFill } from "react-icons/pi";
 import { IoLogoLinkedin } from "react-icons/io5";
 
+import { useState } from "react";
 import Link from "next/link";
 
 import MenuNavBar from "./MenuNavBar";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="fixed flex w-full flex-col items-center bg-white lg:shadow-md">
       <div className="flex w-full items-center justify-center gap-2 bg-black px-4 py-1 text-center text-[0.6rem] font-semibold text-white lg:text-[0.9rem]">
@@ -25,9 +34,11 @@ const NavBar = () => {
         </p>
       </div>
 
-      <div className="relative flex h-[5rem] w-full justify-center px-6 py-6 shadow-md lg:h-[8rem] lg:max-w-[94rem] lg:px-6 lg:shadow-none">
-        {/* Left NavBar _____________________________*/}
-        <div className="flex w-full max-w-[42rem] justify-between text-[rgba(0,0,0,0.87)] lg:max-w-none">
+      <div
+        className={`relative flex h-[5rem] w-full items-center justify-center shadow-md py-6 lg:h-[8rem] lg:max-w-[94rem] lg:px-6 lg:shadow-none`}
+      >
+        <div className="flex w-full px-4 justify-between text-[rgba(0,0,0,0.87)] lg:max-w-none">
+          {/* Left NavBar _____________________________*/}
           <div className="flex items-center gap-10 text-[0.8rem] font-extrabold tracking-[0.1rem]">
             <button
               style={{
@@ -69,9 +80,42 @@ const NavBar = () => {
             </button>
           </div>
         </div>
+
+        {/* MOVIL ________________________________________*/}
         {/* Menu Responsive NavBar _____________________________*/}
-        <div className="flex cursor-pointer items-center lg:hidden">
-          <MenuNavBar />
+        <div className="flex cursor-pointer items-center lg:hidden px-4">
+          <MenuNavBar toggleMenu={toggleMenu} isOpen={isOpen} />
+        </div>
+
+        {/* Menú desplegable */}
+        <div
+          className={`absolute right-0 top-[5rem] -z-10 max-h-0 overflow-hidden rounded-bl-2xl bg-white p-5 shadow-lg transition-all duration-[0.4s] ease-in-out lg:hidden ${isOpen ? "max-h-dvh" : "max-h-0 p-0"}`}
+        >
+          <ul className="flex flex-col gap-10 p-5 pb-6 font-medium">
+            <li className="flex">MENÚ</li>
+            <li className="flex">REWARDS</li>
+            <li className="flex">TIENDAS</li>
+          </ul>
+
+          {/* Lower NavBar _____________________________*/}
+          <div className="flex flex-col gap-6 border-t-[1px] border-black/35 pt-6">
+            <div className="flex items-center gap-8 text-[0.75rem] font-bold">
+              <button className="rounded-full border border-black px-[1rem] py-[0.35rem] transition hover:border-[rgba(0,118,55,1)] hover:text-[rgba(0,118,55,1)]">
+                Iniciar Sesión
+              </button>
+
+              <button className="rounded-full border border-black bg-black px-[1rem] py-[0.35rem] text-white transition hover:bg-[rgba(0,0,0,0.7)]">
+                Regístrate
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 text-[0.80rem] font-bold">
+              <PiMapPinFill size="2rem" />
+              <button className="transition hover:text-[rgba(0,118,55,1)]">
+                Encuentra tu tienda
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

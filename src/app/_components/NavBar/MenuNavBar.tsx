@@ -1,53 +1,39 @@
 "use client";
-import { IoMenu } from "react-icons/io5";
-import { PiMapPinFill } from "react-icons/pi";
 
-import { useState } from "react";
+// Define la interfaz para las propiedades del componente
+interface MenuNavBarProps {
+  toggleMenu: () => void; // La función que se ejecutará al hacer clic
+  isOpen: boolean; // Estado que indica si el menú está abierto o cerrado
+}
 
-const MenuNavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+const MenuNavBar: React.FC<MenuNavBarProps> = ({ toggleMenu, isOpen }) => {
   return (
     <div className="">
       {/* Icono del menú */}
-      <div onClick={toggleMenu} className="">
-        <IoMenu size="3rem" />
+      <div onClick={toggleMenu} className="relative h-12 w-12 cursor-pointer">
+        {/* Línea superior */}
+        <div
+          className={`absolute left-1/2 top-4 h-[4px] w-8 rounded-full bg-black transition-all duration-300 ease-in-out ${
+            isOpen
+              ? "translate-x-[-50%] translate-y-[8px] rotate-45"
+              : "-translate-x-1/2"
+          }`}
+        />
+        {/* Línea media */}
+        <div
+          className={`absolute left-1/2 top-6 h-[4px] w-8 -translate-x-1/2 rounded-full bg-black transition-all duration-300 ease-in-out ${
+            isOpen ? "opacity-0" : "opacity-100"
+          }`}
+        />
+        {/* Línea inferior */}
+        <div
+          className={`absolute left-1/2 top-8 h-[4px] w-8 rounded-full bg-black transition-all duration-300 ease-in-out ${
+            isOpen
+              ? "translate-x-[-50%] translate-y-[-8px] -rotate-45"
+              : "-translate-x-1/2"
+          }`}
+        />
       </div>
-
-      {/* Menú desplegable */}
-      {isOpen && (
-        <div className="absolute right-0 top-[5rem] rounded-bl-2xl bg-white p-5 shadow-lg -z-10">
-          <ul className="flex flex-col gap-10 pb-6 font-medium">
-            <li className="flex">MENÚ</li>
-            <li className="flex">REWARDS</li>
-            <li className="flex">TIENDAS</li>
-          </ul>
-
-          {/* Right NavBar _____________________________*/}
-          <div className="flex flex-col gap-6 border-t-[1px] border-black/35 pt-6">
-            <div className="flex items-center gap-8 text-[0.75rem] font-bold">
-              <button className="rounded-full border border-black px-[1rem] py-[0.35rem] transition hover:border-[rgba(0,118,55,1)] hover:text-[rgba(0,118,55,1)]">
-                Iniciar Sesión
-              </button>
-
-              <button className="rounded-full border border-black bg-black px-[1rem] py-[0.35rem] text-white transition hover:bg-[rgba(0,0,0,0.7)]">
-                Regístrate
-              </button>
-            </div>
-
-            <div className="flex items-center gap-2 text-[0.80rem] font-bold">
-              <PiMapPinFill size="2rem" />
-              <button className="transition hover:text-[rgba(0,118,55,1)]">
-                Encuentra tu tienda
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

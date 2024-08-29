@@ -95,7 +95,7 @@ const UpperFooter = () => {
             </div>
 
             <div
-              className={`flex max-h-0 flex-col transition-all duration-500 ${openSections[info.title] ? "max-h-dvh" : "max-h-0"}`}
+              className={`flex max-h-0 flex-col transition-all duration-500 ease-in-out ${openSections[info.title] ? "max-h-dvh" : "max-h-0"}`}
             >
               {info.subtitles.map((subtitles) => (
                 <div
