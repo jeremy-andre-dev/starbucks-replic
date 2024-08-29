@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -59,10 +59,13 @@ const UpperFooter = () => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center border-t-[2px] ">
+    <div className="flex w-full flex-col items-center border-t-[2px]">
       <div className="grid w-full max-w-[45rem] gap-12 px-6 py-10 md:grid-cols-3 lg:max-w-[94rem] lg:grid-cols-6">
         {infoSections.map((info) => (
-          <div key={info.title} className="flex flex-col gap-6">
+          <div
+            key={info.title}
+            className="flex flex-col overflow-hidden md:gap-6"
+          >
             {/* DESKTOP ________________*/}
             <div className="hidden justify-between font-medium md:flex">
               <div>{info.title}</div>
@@ -79,27 +82,30 @@ const UpperFooter = () => {
 
             {/* MOVIL ________________*/}
             <div
-              className="flex justify-between font-medium md:hidden"
+              className="flex cursor-pointer justify-between font-medium md:hidden"
               onClick={() => toggleMenu(info.title)}
             >
               <div>{info.title}</div>
               <MdKeyboardArrowDown
-                className={`md:hidden transition-transform duration-400 -z-20 ${
+                className={`-z-20 transition-transform duration-500 md:hidden ${
                   openSections[info.title] ? "-rotate-180" : ""
                 }`}
                 size="1.5rem"
               />
             </div>
 
-            {openSections[info.title] &&
-              info.subtitles.map((subtitles) => (
+            <div
+              className={`flex max-h-0 flex-col transition-all duration-500 ${openSections[info.title] ? "max-h-dvh" : "max-h-0"}`}
+            >
+              {info.subtitles.map((subtitles) => (
                 <div
                   key={subtitles}
-                  className="flex cursor-pointer text-[0.95rem] text-[rgba(0,0,0,0.58)]"
+                  className={`flex cursor-pointer pt-6 text-[0.95rem] text-[rgba(0,0,0,0.58)] md:hidden`}
                 >
                   {subtitles}
                 </div>
               ))}
+            </div>
           </div>
         ))}
       </div>

@@ -54,7 +54,7 @@ const imagesHomes = [
 
 const HomeLayout = () => {
   return (
-    <div className="mt-[7rem] flex flex-col items-center gap-10 py-[5.75rem] lg:px-6">
+    <div className="lg:mt-[7rem] mt-[4rem] flex flex-col items-center gap-10 py-[5.75rem] lg:px-6">
       {imagesHomes.map((image, index) => (
         <div
           key={image.name}
